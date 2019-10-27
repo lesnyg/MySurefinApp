@@ -3,6 +3,7 @@ package com.lesnyg.mysurefinapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -25,14 +26,10 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.action_login:
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.fragment_main,new LoginFragment())
-                                .commit();
+                        startActivity(new Intent(MainActivity.this,LoginActivity.class));
                         return true;
                     case R.id.action_signup:
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.fragment_main, new SignupFragment())
-                                .commit();
+                        startActivity(new Intent(MainActivity.this,RegisterActivity.class));
                         return true;
                 }
                 return false;
